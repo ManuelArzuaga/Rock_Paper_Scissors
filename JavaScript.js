@@ -57,12 +57,7 @@ function game(){
     let playerChoice = prompt("Ingrese un valor");
     playerChoice = playerChoice.toLowerCase();  //devuelve el playerChoice todo en minuscula;
     let ComputerChoice = getComputerChoice();
-    if(Round(ComputerChoice,playerChoice) === "Empate"){
-      let playerChoice = prompt("Ingrese un valor");
-      playerChoice = playerChoice.toLowerCase(); //devuelve el playerChoice todo en minuscula;
-      let ComputerChoice = getComputerChoice();
-    }
-    else{
+    if(Round(ComputerChoice,playerChoice) !== "Empate"){
       if(Round(ComputerChoice,playerChoice) === "Player"){
         Player = Player + 1;
         
