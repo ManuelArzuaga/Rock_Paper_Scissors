@@ -1,3 +1,7 @@
+const btn1 = document.querySelector("#button1");
+const btn2 = document.querySelector("#button2");
+const btn3 = document.querySelector("#button3");
+
 function getComputerChoice(){
   let valor = Math.floor(Math.random()*3); //devuelve un valor entero entre 0 y 2
   let resultado = "";
@@ -53,33 +57,51 @@ function game(){
   let Player = 0;
   let Computer = 0;
 
-  while(games !=5){
-    let playerChoice = prompt("Ingrese un valor");
-    playerChoice = playerChoice.toLowerCase();  //devuelve el playerChoice todo en minuscula;
+  let playerChoice = "";
+  btn1.addEventListener("click",()=>{ //asigno el valor a playerchoice cuando se hace click el boton
+    playerChoice = "rock";
     let ComputerChoice = getComputerChoice();
-    if(Round(ComputerChoice,playerChoice) !== "Empate"){
-      if(Round(ComputerChoice,playerChoice) === "Player"){
-        Player = Player + 1;
-        
-      }
-      else if(Round(ComputerChoice,playerChoice) === "Computer"){
-        Computer = Computer + 1;
-        
-      }
-      console.log("Player:" + Player);
-      console.log("Computer:" + Computer);
-      games = games + 1;
-    }
-  }
-  
-  if(Player>Computer){
-    console.log("Player Win");
-  }
-  else if(Player<Computer){
-    console.log("Computer Win");
-  }
-}
+    console.log(Round(ComputerChoice,playerChoice))
+  })
+  btn2.addEventListener("click",()=>{
+    playerChoice = "paper";
+    let ComputerChoice = getComputerChoice();
+    console.log(Round(ComputerChoice,playerChoice))
+     
+  })
+  btn3.addEventListener("click",()=>{
+    playerChoice = "scissors";
+    let ComputerChoice = getComputerChoice();
+    console.log(Round(ComputerChoice,playerChoice))
 
- game(); 
+  })
+}
+    
+  
+    
+//   if(Round(ComputerChoice,playerChoice) !== "Empate"){
+//     if(Round(ComputerChoice,playerChoice) === "Player"){
+//       Player = Player + 1;
+//     }
+//     else if(Round(ComputerChoice,playerChoice) === "Computer"){
+//       Computer = Computer + 1;
+//     }
+//     console.log("Player:" + Player);
+//     console.log("Computer:" + Computer);
+//     games = games + 1;
+//   }
+  
+  
+//   if(Player>Computer){
+//     console.log("Player Win");
+//   }
+//   else if(Player<Computer){
+//     console.log("Computer Win");
+//   }
+// }
+
+game(); 
+
+
 
 
