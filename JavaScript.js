@@ -1,6 +1,9 @@
 const btn1 = document.querySelector("#button1");
 const btn2 = document.querySelector("#button2");
 const btn3 = document.querySelector("#button3");
+const div = document.createElement("div");
+const div2 = document.createElement("div");
+const container = document.querySelector("#container");
 
 function getComputerChoice(){
   let valor = Math.floor(Math.random()*3); //devuelve un valor entero entre 0 y 2
@@ -61,44 +64,91 @@ function game(){
   btn1.addEventListener("click",()=>{ //asigno el valor a playerchoice cuando se hace click el boton
     playerChoice = "rock";
     let ComputerChoice = getComputerChoice();
-    console.log(Round(ComputerChoice,playerChoice))
-  })
+    let round = Round(ComputerChoice,playerChoice)
+    
+    if(round !== "Empate"){
+      if(round === "Player"){
+        Player = Player + 1;
+        }
+        else if(round === "Computer"){
+          Computer = Computer + 1;
+        }
+    }
+
+    if(Player === 5){
+      
+      alert("Player win");
+      Player = 0;
+      Computer = 0;
+    }
+    if(Computer === 5){
+      alert("Computer win");
+      Player = 0;
+      Computer = 0;
+    }
+    div.textContent = "Player " + Player;
+    div2.textContent = "Computer " + Computer;
+    })
   btn2.addEventListener("click",()=>{
     playerChoice = "paper";
     let ComputerChoice = getComputerChoice();
-    console.log(Round(ComputerChoice,playerChoice))
+    let round = Round(ComputerChoice,playerChoice)
+    if(round !== "Empate"){
+      if(round === "Player"){
+        Player = Player + 1;
+        }
+        else if(round === "Computer"){
+          Computer = Computer + 1;
+        }
+    }
+    if(Player === 5){
+      
+      alert("Player win");
+      Player = 0;
+      Computer = 0;
+    }
+    if(Computer === 5){
+      alert("Computer win");
+      Player = 0;
+      Computer = 0;
+    }
+    div.textContent = "Player " + Player;
+    div2.textContent = "Computer " + Computer;
      
   })
   btn3.addEventListener("click",()=>{
     playerChoice = "scissors";
     let ComputerChoice = getComputerChoice();
-    console.log(Round(ComputerChoice,playerChoice))
-
+    let round = Round(ComputerChoice,playerChoice)
+    if(round !== "Empate"){
+      if(round === "Player"){
+        Player = Player + 1;
+        }
+        else if(round === "Computer"){
+          Computer = Computer + 1;
+        }
+    }
+    if(Player === 5){
+      
+      alert("Player win");
+      Player = 0;
+      Computer = 0;
+    }
+    if(Computer === 5){
+      alert("Computer win");
+      Player = 0;
+      Computer = 0;
+    }
+    div.textContent = "Player " + Player;
+    div2.textContent = "Computer " + Computer;
   })
+
+  
+  
 }
-    
-  
-    
-//   if(Round(ComputerChoice,playerChoice) !== "Empate"){
-//     if(Round(ComputerChoice,playerChoice) === "Player"){
-//       Player = Player + 1;
-//     }
-//     else if(Round(ComputerChoice,playerChoice) === "Computer"){
-//       Computer = Computer + 1;
-//     }
-//     console.log("Player:" + Player);
-//     console.log("Computer:" + Computer);
-//     games = games + 1;
-//   }
-  
-  
-//   if(Player>Computer){
-//     console.log("Player Win");
-//   }
-//   else if(Player<Computer){
-//     console.log("Computer Win");
-//   }
-// }
+
+container.appendChild(div);
+container.appendChild(div2);
 
 game(); 
 
